@@ -1,7 +1,5 @@
 # SS16_HW05 - Hệ thống Flash Sale chống sập
 
-**Sinh viên:** Trương Hà Cẩm Linh - **Mã sinh viên:** PTIT056
-
 ## 1. Kiến trúc tổng thể
 
 ```mermaid
