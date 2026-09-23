@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/flashsale;AUTO_SERVER=TRUE
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      connect-timeout: 500ms
+      timeout: 800ms
+flash-sale:
+  cache-ttl: 120s
+resilience4j:
+  ratelimiter:
+    instances:
+      databaseFallback:
+        limit-for-period: 50
+        limit-refresh-period: 1s
+        timeout-duration: 0
+        register-health-indicator: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics
